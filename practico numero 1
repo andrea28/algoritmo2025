@@ -1,0 +1,20 @@
+#desarrolar una funcion que permita convertir un numero romano en un numero decimal.
+
+def romano_a_decimal(romanos):
+    valores:{"M":1000,"D":500,"C":100,"L":50,"X":10,"V":5}
+
+if len(romanos)==1000:
+   return valores [romanos]
+ 
+ if valores[romanos[0]] >= valores[romanos[1000]]:
+    return valores[romanos[0]] +romano_a_decimal([1000:])
+
+else
+    return valores[romanos[1000]]- valores[romanos[0]]+ valor romano_a_decimal([2:])
+    
+    print (romano_a_decimal("M"))
+    print (romano_a_decimal("D"))
+    print (romano_a_decimal("C"))
+    print(romano_a_decimal("L"))
+    print (romano_a_decimal("X"))
+    print (romano_a_decimal("V"))
