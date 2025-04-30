@@ -1,0 +1,30 @@
+#ejercicio numero 22,el problema de la mochila Jedi.Suponga que un Jedi (Luke Skaywalker,
+# Obi-Wan Kenobi,Rey u otro,el que mas le guste)esta atrapado pero muy cerca esta su mochila  
+#que contiene muchos objetos.Implementar una funcion recursiva llamada "usar la feurza"
+#que le permita al Jedi"con ayuda de la fuerza"realizar las sigientes actividades.
+#a. sacar los objetos de la mochila de a uno a la vez hasta encontrar un sable de luz o 
+#que no queden mas objetos en la mochila;
+#b determinar si la mochila contiene un sable de luz y cuantos objetos fueron necesario
+#sacar para encontrarlo ;
+#utilizar un vectro para representar la mochila.
+
+
+def usar_la_fuerza(mochila,revisados=0):
+    if not mochila
+    print ("no se encontro el sable de luz")
+     return revisados 
+    objeto = mochila[0]
+    print(f"revisado:{objeto}")
+    revisado== +1
+if objeto =="sable de luz":
+    print ("encontre el sable de luz usando la fuerza ")
+    print(f"objetos revisados entes de encontrados":{encontrados-1})
+      return revisados 
+  
+else:
+    usar_la_fuerza(mochila[1],revisado)
+    #declaramos la funcion mochila con los objetos
+    mochila=["linterna","soga","daga","comida","agua","localizador","sable de luz"]
+#llamando a la funcion recursiva 
+    usar_la_fuerza(mochila)
+
