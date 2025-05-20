@@ -1,0 +1,129 @@
+#Ejercicio numero 13
+#Desde una pila con los trajes de Iron-Man,utilizados en la pelicula de Marvel Cinematic Universe (M.C.U)
+#de los cuales se conosen el nombre del modelo, nombre de la pelicula en la que se uso y el estado en que
+#qedo al final de la pelicula (dañado,impecable,destruido), resover las siguientes actividades.
+A) Determinar si el modelo Mark XLIV (Hulbuster) fue utilizado en alguna de las peliculas,ademas mostrar 
+el nombre de dichas peliculas.
+B) Mostar los modelos que quedaron dañados,sin perder informacion de la pila.
+C) Eliminar los modelos de los trajes destruidos mostrando su nombre.
+D)Un modelo de traje puede usarse en mas de una pelicula y en una pelicula se pueden usar mas de un traje,
+estos deben cargarse por separado.
+E) Agregar el modulo Mark LXXXV a la pila.
+F) Mostramos los trajes usados en esta pelicula.
+
+A) #cargamos la pila
+
+     pila_trajes= [{"modulo":"Mark III","pelicula":"Iron-Man","estado":"dañado"},
+                   {"modulo":"Mark V","pelicula":"Iron-Man2","estado":"impecable"},
+                   {"modulo":"Mark XLIV"("Hulkbusters"),"pelicula":"Avenger":"Age of Ultrom","estado":"dañado"},
+                   {"modulo":"Mark XLIV"("Hulkbusters"),"pelicula":"Advenger":"Infinity War","estado":"impecable"},
+                   {"modulo":"Mark XLVI","pelicula":"Captain America":"Civil War","estado":"dañado"},
+                   {"modulo":"Mark XLVII","peicula":"Spider-Man":"Homecaming","estado":"immpecable"},
+                   {"modulo":"Mark L","pelicula2":"avenger":"Infinity War","estado":"destruido"}]
+                    
+                    
+# A)ver si el modelo Mark XLVI(Hulkbusters)fue utilizado si es asi,mostrar el nombre de de las peliculas 
+
+         pelicula_Hulkbusters= set ()
+         for traje in pila_trajes:
+             if traje["modulo"]=="Mark XLIV(Hulkbuster)":
+                 
+            pelicula_Hulkbusters.add(traje["pelicula"])pelicula_Hulkbusters:
+                
+            print("el modulo Hulbusters fue utilizado en las siguientes peliculas")
+            
+            for peliculas in pelicula_Hulkbusters:
+                
+                print("_",pelicula)
+                
+            else :
+                
+                print("el modulo Hulkbuster no fue utilizado en ninguna pelicula.")    
+                
+                
+                
+# B)sin modificar la pila,mostramos los modelos dañados 
+            
+            print("medelos dañados:")
+            
+            for trajes in pila_trajes:
+                if traje["estado"]== "dañado":
+                    
+                    print("_",traje["modulo"])    
+                    
+                    
+                    
+ # C)Eliminamos los modelos de los trajes destruidos,mostrando sus nombres 
+ 
+ 
+ 
+            print("eliminamos modelos destruidos":)   
+            
+            nueva_pila=[] 
+            
+            for traje in pila_trajes:
+                if traje["estado"]=="destruido":
+                    
+                    print("_",traje["modelo"])
+                    
+            else:
+                
+                nueva_pila.append(traje)
+                
+            pila_trajes = nueva_pila
+            
+# Actualizamos los trajes sin los trajes destruidos
+
+
+# D) cargamos por separado  
+
+
+
+         def agregar_traje(pila,modelo,peliculas,estado):   
+             
+             for pelicula in peliculas:
+                 
+                 pila.append({"modelo":"modelo","pelicula":"pelicula","estado":"estado"})
+                                              
+# caragmos trajes en la pila 
+        pila_trajes =[]
+        
+        agregar_traje(pila_trajes"Mark XLIV (Hulbuster)",["Advengers:Age of Ultron","Advengers:Infinity War"],"dañado")
+        agregar_traje(pila_trajes"Mark L",["Advengers:Infinity War"],"destruido")
+        agregar_traje(pila_trajes"Mark III",["Iron-Man"],"dañado") 
+        agregar_traje(pila_trajes"Mark V",["Iron-Man2"],"impecable")
+        agregar_traje(pila_trajes"Mark XLVI",["Captain America:Civil War"],"dañado")
+        agregar_traje(pila_trajes"Mark XLVII",["Spider-Man:Homecaming"],"impecable")
+        
+        #mostramos lo que hay en la pila 
+        
+        
+             print("contenido actual de la pila e trajes:")
+                  
+                  for traje in pila_trajes:
+                      
+                      print(f"modelo:{traje["modelo"]},pelicula:{traje["pelicula"]},estado:{traje["estado"]}")
+                      
+                    
+                    
+#E) Agregar modelo LXXXV a la pila 
+
+
+       nuevo_traje={"modelo":"Mark LXXXV","pelicula":"Endgame","estado":"impecable"}
+                  
+                  pila_trajes.append(nuevo_traje)
+                  
+                  
+                  
+#F) Mostrar los trajes usados en
+     
+     peliculas_objetivo=["Spider-Man: Homecomig", "Captain America: Civil War"]
+         
+         print("trajes utilizados en Spider-Man:Homecoming y Captain America:Civil War:")
+              
+              for traje in pila_trajes:
+                  
+                  if traje["pelicula"] in peliculas_objetivo:
+                      
+                      print("_",traje["modelo"],"en","traje"[pelicula])
+                  
