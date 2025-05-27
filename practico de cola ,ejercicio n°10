@@ -1,0 +1,57 @@
+#10 Dada una cola con las notificaciones de las aplicaciones de redes sociales de un 
+Smartphone,de la cual se cuenta con la hora de notificacion,la aplicacion que la emitio
+y el mensaje,reolver las siguientes actividades:
+    
+    a. escribir una funcion que elimine de la cola todas las notificaciones de facebook;
+    
+    b. escribir una funcion que muestre todas las notificaciones de Twiter,cuyo mensaje 
+    incluya la palabra 'Paython',sin perder datos en la cola;
+    
+    c. utiliza una pila para almacenar temporalmente las noificaciones producidas entre 
+    las 11:43 y las 15:57,y determiar  cuantas son.
+    
+    
+    #cola de notificaciones,lista de diccionario.
+    
+    cola_notificaciones=[{"hora":11:30","aplicacion":"Facebook","mensaje:"hola"},
+    {"hora":"12:00,aplicacion""Instagram","mensaje":" historia de La Roca Johnson"},
+    {"hora":14:30","aplicacion":"Twiter","mensaje""Aprende Python"},
+     {"hora":"1540","aplicacion":"Facebook","mensaje":"nuevo evento"},
+     {"hora":13:00","aplicacion":"Twiter","mensaje":"todo lo que tenes que saber de Python"},
+    {"hora":"11:45","aplicacoion":"whatsap","mensaje":"invitacion a un cumple"}]
+    
+    a)#eliminar todas las notificaciones de Facebook
+    
+    def eliminar_facebook(cola):
+        nueva_cola=[]
+        for notificacion in cola:
+            if notificacion["aplicacion"].lowr()!="facebook"
+             nueva_cola.append(notificacion)
+             return nueva_cola
+         cola_notificaciones=eliminar_facebook
+         (cola_notificaciones)
+         
+b)#mostrar notificaciones en twiter que tengan la palabra python,sin modificar la cola 
+
+def mostra_twiter_python(cola)
+   if notificacion["aplicacion"].lower()=="twiter":
+       if python in notificacion ["mensaje"].lower:
+           print(notificacion")
+                 
+                 
+#c)utilizar una pila para almacenar notificaciones entre 11:43 y las 13:57 y contar cuantas son 
+
+def en_rango(hora,inicio,fin):
+
+    return inicio <= hora <= fin 
+    
+def filtrar_por_hora(cola):
+    pila=[]
+    contador=0
+    for notificacion in cola:
+    hora=notificacion["hora"]
+    if en_rango(hora"11:43","13:57"):
+      pila.append(notificacion)
+      contador +=1
+      print("cantidad en el rango ",cantidad )
+      return pila 
