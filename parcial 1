@@ -1,0 +1,417 @@
+#lista basica recursividad
+super_heroes_data: { "real_name": "Nathaniel Richards",
+        "short_bio": "Kang the Conqueror is a time-traveling warlord who has battled many heroes, especially the Avengers. He is known for his mastery of advanced technology and his ability to manipulate time.",
+        "first_appearance": 1964,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Hulk",
+        "alias": "The Hulk",
+        "real_name": "Bruce Banner",
+        "short_bio": "Hulk is a gamma-powered superhero with incredible strength and durability. He transforms into a green giant when angered or stressed.",
+        "first_appearance": 1962,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Black Widow",
+        "alias": "Natasha Romanoff",
+        "real_name": "Natasha Romanoff",
+        "short_bio": "Black Widow is a highly trained spy and former assassin with exceptional skills in hand-to-hand combat and espionage.",
+        "first_appearance": 1964,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Black Cat",
+        "alias": "Felicia Hardy",
+        "real_name": "Felicia Hardy",
+        "short_bio": "Black Cat is a skilled burglar with a unique power that brings bad luck to her enemies. She often operates in the gray area between hero and villain.",
+        "first_appearance": 1979,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Iron Man",
+        "alias": "Iron Man",
+        "real_name": "Tony Stark",
+        "short_bio": "A billionaire inventor who built a powered suit of armor to save his life and became a founding Avenger.",
+        "first_appearance": 1963,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Magneto",
+        "alias": "Master of Magnetism",
+        "real_name": "Max Eisenhardt",
+        "short_bio": "A powerful mutant with control over magnetic fields, often portrayed as an adversary to the X-Men, though with complex motivations.",
+        "first_appearance": 1963,
+        "is_villian": True
+        "is_villain": True
+    }],
+    
+    #funcion recursiva para buscar "capitan America"
+     def buscar_capitan_america (lista,super_heroes_data):
+         if super_heroes_data>=len (lista):
+             return false 
+             if lista s[uper_heroes_data]== "capitan america":
+                 return True
+             return buscar_capitan_america(lista,super_heroes_data+)
+         #funcion recursiva para listar todos los super heroes
+         def listar_superheroes(lista,super_heroes_data):
+             if super_heroes_data>=len(lista):
+                 return
+             print(lista[super_heroes_data])
+             listar_superheroes(lista,super_heroes_data+)
+             
+             #prueba de las funciones
+             print("esta capitan america en la lista. ?")
+             if buscar_capitan_america(superheroes):
+                 print ("si, esta en la lista.")
+             else :
+                 print("no,no esta en la lista.")
+                 print("n/lista de superheroes:")
+                 listar_superheroes(superheroes)
+                 
+                 
+                 
+                 
+                 
+                
+                 
+   #ejercisio 2    
+   # [nombre,nombre_real,fecha_aparicion,es_villano(bool),biografia)]   
+   
+   def super_heroes_data{"real_name": "Nathaniel Richards",
+        "short_bio": "Kang the Conqueror is a time-traveling warlord who has battled many heroes, especially the Avengers. He is known for his mastery of advanced technology and his ability to manipulate time.",
+        "first_appearance": 1964,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Hulk",
+        "alias": "The Hulk",
+        "real_name": "Bruce Banner",
+        "short_bio": "Hulk is a gamma-powered superhero with incredible strength and durability. He transforms into a green giant when angered or stressed.",
+        "first_appearance": 1962,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Black Widow",
+        "alias": "Natasha Romanoff",
+        "real_name": "Natasha Romanoff",
+        "short_bio": "Black Widow is a highly trained spy and former assassin with exceptional skills in hand-to-hand combat and espionage.",
+        "first_appearance": 1964,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Black Cat",
+        "alias": "Felicia Hardy",
+        "real_name": "Felicia Hardy",
+        "short_bio": "Black Cat is a skilled burglar with a unique power that brings bad luck to her enemies. She often operates in the gray area between hero and villain.",
+        "first_appearance": 1979,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Iron Man",
+        "alias": "Iron Man",
+        "real_name": "Tony Stark",
+        "short_bio": "A billionaire inventor who built a powered suit of armor to save his life and became a founding Avenger.",
+        "first_appearance": 1963,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Magneto",
+        "alias": "Master of Magnetism",
+        "real_name": "Max Eisenhardt",
+        "short_bio": "A powerful mutant with control over magnetic fields, often portrayed as an adversary to the X-Men, though with complex motivations.",
+        "first_appearance": 1963,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Storm",
+        "alias": "Storm",
+        "real_name": "Ororo Munroe",
+        "short_bio": "A mutant with the ability to manipulate weather, known for her leadership in the X-Men and her strong moral compass.",
+        "first_appearance": 1975,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Venom",
+        "alias": "Venom",
+        "real_name": "Eddie Brock",
+        "short_bio": "A journalist who bonds with an alien symbiote to become the anti-hero Venom, often torn between vengeance and justice.",
+        "first_appearance": 1988,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Scarlet Witch",
+        "alias": "Scarlet Witch",
+        "real_name": "Wanda Maximoff",
+        "short_bio": "A mutant with chaos magic and reality-warping powers, known for her complex role as both hero and threat.",
+        "first_appearance": 1964,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Abomination",
+        "alias": "Abomination",
+        "real_name": "Emil Blonsky",
+        "short_bio": "A former KGB agent who transforms into a gamma-powered monster and becomes one of Hulk's main enemies.",
+        "first_appearance": 1967,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Adam Warlock",
+        "alias": "Adam Warlock",
+        "real_name": "Adam Warlock",
+        "short_bio": "An artificially created perfect human who becomes a cosmic protector and wielder of the Soul Gem.",
+        "first_appearance": 1967,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Angel",
+        "alias": "Angel",
+        "real_name": "Warren Worthington III",
+        "short_bio": "A founding member of the X-Men with large feathered wings that allow him to fly.",
+        "first_appearance": 1963,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Annihilus",
+        "alias": "Annihilus",
+        "real_name": "Annihilus",
+        "short_bio": "A powerful insectoid ruler from the Negative Zone, obsessed with extending his lifespan.",
+        "first_appearance": 1968,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Ant Man",
+        "alias": "Ant Man",
+        "real_name": "Hank Pym",
+        "short_bio": "A brilliant scientist who discovered Pym Particles and became a size-changing superhero.",
+        "first_appearance": 1962,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+    "name": "Apocalypse",
+    "alias": "Apocalypse",
+    "real_name": "En Sabah Nur",
+    "short_bio": "One of the first mutants, Apocalypse believes in survival of the fittest and has enhanced his body over millennia with alien technology.",
+    "first_appearance": 1986,
+    "is_villian": True
+    "is_villain": True
+    },
+    {
+        "name": "Baron Zemo",
+        "alias": "Baron Zemo",
+        "real_name": "Helmut Zemo",
+        "short_bio": "A brilliant and ruthless strategist, Baron Zemo is a longtime foe of Captain America and leader of various villainous groups.",
+        "first_appearance": 1973,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Beast",
+        "alias": "Beast",
+        "real_name": "Henry 'Hank' McCoy",
+        "short_bio": "A founding member of the X-Men, Beast possesses superhuman strength and agility along with a brilliant scientific mind.",
+        "first_appearance": 1963,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Beta Ray Bill",
+        "alias": "Beta Ray Bill",
+        "real_name": "Beta Ray Bill",
+        "short_bio": "A noble alien warrior deemed worthy of wielding Mjolnir, he was granted his own hammer, Stormbreaker, by Odin.",
+        "first_appearance": 1983,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Black Bolt",
+        "alias": "Black Bolt",
+        "real_name": "Blackagar Boltagon",
+        "short_bio": "King of the Inhumans, Black Bolt possesses a voice so powerful that even a whisper can cause massive destruction.",
+        "first_appearance": 1965,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Black Panther",
+        "alias": "Black Panther",
+        "real_name": "T'Challa",
+        "short_bio": "King of Wakanda and protector of its people, Black Panther is a skilled fighter, strategist, and bearer of the Heart-Shaped Herb.",
+        "first_appearance": 1966,
+        "is_villian": False
+        "is_villain": False
+    },
+    {
+        "name": "Blizzard",
+        "alias": "Blizzard",
+        "real_name": "Donnie Gill",
+        "short_bio": "A villain who uses a suit capable of generating intense cold and ice-based attacks, often clashing with Iron Man.",
+        "first_appearance": 1987,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Bullseye",
+        "alias": "Bullseye",
+        "real_name": "Lester",
+        "short_bio": "An assassin with deadly accuracy, Bullseye never misses and is a persistent nemesis of Daredevil.",
+        "first_appearance": 1976,
+        "is_villian": True
+        "is_villain": True
+    },
+    {
+        "name": "Cable",
+        "alias": "Cable",
+        "real_name": "Nathan Summers",
+        "short_bio": "A time-traveling mutant soldier with telekinetic powers and a techno-organic virus, he is the son of Cyclops and Madelyne Pryor.",
+        "first_appearance": 1990,
+        "is_villian": False
+        "is_villain": False
+        
+        
+        #Ordenar por nombre de manera ascendete 
+        
+        def ordenar_por_nombre(lista)
+        
+        for i in range(len(lista)):
+            
+            for j in range(i+1,len(lista)):
+                if lista[i][0]>lista[j][0]:
+                    temporal=lista[i]
+                    lista[i]=lista[j]
+                    lista[j]=temporal
+    #llamamos a la funcion para ordenar la lista principal de (super_heroes_data)
+    
+    ordenar_por_nombre(super_heroes_data)
+    #mostrar el listado ordenado 
+    print("personajes ordenados por nombre:")
+    for p in super_heroes_data:
+        print(p[0])
+        
+        
+        #buscar posicion de "the thing" y Rocket Raccon
+        
+        def buscar_posicion(nombre_buscado,lista):
+            for i in range (len (lista)):
+                if lista [i[0]]==
+                nombre_buscado:
+                    return ifrerturn-1
+    pos_thing= buscar_posicion("The Thing",super_heroes_data)
+    pos_Rocket=buscar_posicion("Rocket Racoon",super_heroes_data)
+    
+    print("posicion The Thing:"
+    pos_thing)
+    print("posicion The Rocket Racoon:"
+    pos_rocket)
+    
+    #3 listar todos los villanos de la lista 
+    print("villanos en la lita:")
+    for i in range(len(super_heroes_data)):
+        if super_heroes_data[i][3]==True:
+        print super_heroes_data[i][0]
+        
+#4 poner todos los villanos en una cola,luego mostrar quenes apaprecieron antes de 1980
+
+    for collection import cola 
+    cola_villanos=cola ()
+    for v in villanos :
+        cola_villanos.append(v)
+    print ("villanos antes de 1980:")
+     while len (cola_villanos)>0:
+         v=cola_villanos.popleft()
+         if v[2]<1980:
+             print (v[0],"-",[2]
+                    
+                     
+#5 superheroes que comienzan con BI,G,MY,W
+
+print("superheroes que comienzan con BI,G,MY,W:")
+
+  prefijos =["bi","g","my","w"]
+    for i in range (len(super_heroes_data)):
+        nombre=super_heroes_data[i][0].lower()
+        for prefijos in prefijos :
+            if nombre.prefijo:
+                print(super_heroes_data[i][0])
+                break
+                
+#6 ordenar por nombre real 
+
+def ordenar_por_nombre_real(lista):
+    for i in range (len(lista)):
+        for j in range (i+1,len(lista)):
+            if lista[i][1]>lista[j]
+            lista[J]=temporal
+            
+    ordenar_por_nombre_real(super_heroes_data)
+      print ("personaje ordenado por nombre real:")
+         for p in super_heroes_data:
+              print (p[1],"(",p[0]")")
+              
+ #odenar por fecha de aparicion 7
+ 
+ def ordenar_por_fecha(ñista):for i in ragne (len(lista)):
+     for j in range (i+1,len(lista)):
+         if lista [i][2]>lista [i]
+         lista[I]=lista[j]
+         lsta[j]=temporal 
+         
+   ordenar_por_fecha(super_heroes_data)
+     print ("personajes ordenados por orden de paricion:")
+           for p in super_heroes_data:
+               print(p[0],"-",p[2])
+               
+#8 modificar nombre de Ant-man y Scott Lang
+
+     for i in range (len(super_heroes_data)):
+         if super_heroes_data[i][0]=="Ant-Man":
+             super_heroes_data[i][0]== "Hank Pym/Scott Lang"
+         elif super_heroes_data[i][1]=="Scott Lang":
+             super_heroes_data[i][1]="Scott Lang(Ant-Man)"
+             
+             
+#9 mostrar personajes con "Time-travelig" o "Suit" en la biografia 
+
+     prin ("personajes con "Time ravelig"o "Suit" en la biografia:")
+      for i in range (len(super_heroes_data)):
+          bio=super_heroes_data[i][4].lower()
+          if "Time-Traveling"in bio or "Suit"in bio :
+              pritn(super_heroes_data)[i][0],":",super_heroes_data[i][4]
+              
+
+#10  eliminar Electro y Baron Zemo 
+
+eliminados=[]
+for nombre_eliminarin ["electro","Baron Zemo"]:
+    for i in range (len(super_heroes_data)):
+        if super_heroes_data.pop(i)
+            break
+            
+    if len (eliminados)>0:
+        print ("eliminados:")
+        for e in eliminados :
+            print e[0],"-",e[1]
+        else:
+            print ("Electro y Baron Zemo no estaban en la lista")
+             
+               
+            
