@@ -1,0 +1,72 @@
+#24  de pila 
+#Dada una pila de personajes de Mrvel Cinematic Universe(MCU),de los cuales se 
+dispone de su nombrejercicioe y la cantidad de peliculas de la saga en la que participo,
+implementar las funciones nencesarias para resolver las siguientes actividades:
+a. determinar en que posicion se encuenrtra Rocket Raccoon y Groot,tomando como 
+posicicion uno la cima de la pila.
+
+b.determinar los personajes que participaron e mas de 5 peliculas de la saga,
+ademaas indicar la cantidad de peliculas en la que aparece ;
+
+c. determinar en cuantas peliculas participo la Viuda(Black Widow);
+
+d. mostrar todos los personaejes cuyos nombres empiezan con C,D y G.
+
+
+
+
+
+
+        # Definimos la pila de personajes (la cima está al final de la lista)
+pila_mcu = [
+    {"nombre": "Iron Man", "peliculas": 10},
+    {"nombre": "Captain America", "peliculas": 9},
+    {"nombre": "Black Widow", "peliculas": 7},
+    {"nombre": "Hawkeye", "peliculas": 5},
+    {"nombre": "Groot", "peliculas": 6},
+    {"nombre": "Rocket Raccoon", "peliculas": 5},
+    {"nombre": "Doctor Strange", "peliculas": 4},
+    {"nombre": "Gamora", "peliculas": 6},
+    {"nombre": "Drax", "peliculas": 5},
+    {"nombre": "Captain Marvel", "peliculas": 3}
+]
+
+# a. Determinar la posición de Rocket Raccoon y Groot desde la cima
+def posicion_desde_cima(pila, nombre_personaje):
+    for i in range(1, len(pila) + 1):
+        if pila[-i]["nombre"] == nombre_personaje:
+            return i
+    return None
+
+# b. Personajes con más de 5 películas
+def personajes_mas_de_5(pila):
+    resultado = []
+    for personaje in pila:
+        if personaje["peliculas"] > 5:
+            resultado.append((personaje["nombre"], personaje["peliculas"]))
+    return resultado
+
+# c. Cantidad de películas de Black Widow
+def peliculas_de_black_widow(pila):
+    for personaje in pila:
+        if personaje["nombre"].lower() == "black widow":
+            return personaje["peliculas"]
+    return 0
+
+# d. Personajes cuyos nombres empiezan con C, D o G
+def personajes_con_letras(pila, letras):
+    letras = [letra.upper() for letra in letras]
+    return [personaje["nombre"] for personaje in pila if personaje["nombre"][0].upper() in letras]
+
+# --- Ejecución de cada punto ---
+print("a. Posición de Rocket Raccoon:", posicion_desde_cima(pila_mcu, "Rocket Raccoon"))
+print("a. Posición de Groot:", posicion_desde_cima(pila_mcu, "Groot"))
+
+print("\nb. Personajes con más de 5 películas:")
+for nombre, cantidad in personajes_mas_de_5(pila_mcu):
+    print(f"   {nombre}: {cantidad} películas")
+
+print("\nc. Películas de Black Widow:", peliculas_de_black_widow(pila_mcu))
+
+print("\nd. Personajes que comienzan con C, D o G:")
+print(personajes_con_letras(pila_mcu, ["C", "D", "G"]))
