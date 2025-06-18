@@ -1,0 +1,87 @@
+#ejercicio numero 22 de cola
+se tiene una cola con perdonajes de Marvel Cinematic Universe(MCU),de los cuales 
+se conosen el nombre del personaje,el nombre del superheroe y su genero 
+(Masculino M y femenino F)- por ejemplo {Tony Star,Iron Man, M},{Steve Rogers,Capitan America M},{Natasha Romanoff,
+                                                                                                  Bblack Widow,F},etc
+desarrollar un algoritmo que resuelva las siguientes actividades:
+    
+a. determinar el nombre de la superheroe Capitana Marvel ;
+
+b. mostrar los nombres de los superheroes femeninos;
+
+c. mostrar los nombres de los personajes masculinos;
+
+d.determinar el nombre del personaje Scott Lange ;
+
+e. mostrar todos los datos de los superheroes o personajes cuyos nombres comienzan 
+con la letra S;
+
+f. determinar si el personaje Carol Danvers se encuentra en la cola e indicar su nombre 
+de superheores.
+
+
+
+
+from collections import deque
+
+# Cola con personajes: (nombre real, superhéroe, género)
+cola_mcu = deque([
+    ("Tony Stark", "Iron Man", "M"),
+    ("Steve Rogers", "Capitán América", "M"),
+    ("Natasha Romanoff", "Black Widow", "F"),
+    ("Carol Danvers", "Capitana Marvel", "F"),
+    ("Scott Lang", "Ant-Man", "M"),
+    ("Wanda Maximoff", "Scarlet Witch", "F"),
+    ("Stephen Strange", "Doctor Strange", "M"),
+    ("Shuri", "Black Panther", "F"),
+    ("Sam Wilson", "Falcon", "M")
+])
+
+# Copia de la cola para procesar sin perder datos
+cola_aux = deque(cola_mcu)
+
+# a. Determinar el nombre del personaje de la Capitana Marvel
+print("a. Nombre del personaje de Capitana Marvel:")
+for personaje in cola_aux:
+    if personaje[1] == "Capitana Marvel":
+        print(f"- {personaje[0]}")
+print()
+
+# b. Mostrar los nombres de los superhéroes femeninos
+print("b. Superhéroes femeninos:")
+for personaje in cola_aux:
+    if personaje[2] == "F":
+        print(f"- {personaje[1]}")
+print()
+
+# c. Mostrar los nombres de los personajes masculinos
+print("c. Personajes masculinos:")
+for personaje in cola_aux:
+    if personaje[2] == "M":
+        print(f"- {personaje[0]}")
+print()
+
+# d. Determinar el nombre del superhéroe Scott Lang
+print("d. Superhéroe de Scott Lang:")
+for personaje in cola_aux:
+    if personaje[0] == "Scott Lang":
+        print(f"- {personaje[1]}")
+print()
+
+# e. Mostrar todos los datos de personajes/superhéroes que comienzan con "S"
+print("e. Personajes o superhéroes cuyo nombre empieza con 'S':")
+for personaje in cola_aux:
+    if personaje[0].startswith("S") or personaje[1].startswith("S"):
+        print(f"- {personaje}")
+print()
+
+# f. ¿Está Carol Danvers? ¿Cuál es su superhéroe?
+print("f. ¿Está Carol Danvers en la cola?")
+encontrado = False
+for personaje in cola_aux:
+    if personaje[0] == "Carol Danvers":
+        print(f"- Sí, su superhéroe es: {personaje[1]}")
+        encontrado = True
+        break
+if not encontrado:
+    print("- No se encuentra en la cola.")
