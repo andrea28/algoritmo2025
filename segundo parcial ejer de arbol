@@ -1,0 +1,496 @@
+
+
+#Ejercicio 1: Se tiene los datos de Pokémons de las 9 generaciones cargados de manera 
+# aleatoria (1025 en total) de los cuales se conoce su nombre, número, tipo/tipos,
+# debilidad frente a tipo/tipos, si tiene mega evolucion (bool) y si tiene forma gigamax
+# (bool) para el cual debemos construir tres árboles para acceder de manera eficiente a
+# los datos contemplando lo siguiente:
+#1-los índices de cada uno de los árboles deben ser nombre, número y tipo;
+#2-mostrar todos los datos de un Pokémon a partir de su número y nombre –para este último,
+# la búsqueda debe ser por proximidad, es decir si busco “bul” se deben mostrar todos los
+# Pokémons cuyos nombres comiencen o contengan dichos caracteres–;
+#3-mostrar todos los nombres de los Pokémons de un determinado tipo: fantasma, fuego, acero y eléctrico;
+#4-realizar un listado en orden ascendente por número y nombre de Pokémon, y además un listado por nivel por nombre;
+#5-mostrar todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum;
+#6-mostrar todos los tipos de Pokémons y cuántos hay de cada tipo;
+#7-determinar cuantos Pokémons tienen megaevolucion.
+#8-determinar cuantos Pokémons tiene forma gigamax.
+
+
+
+from typing import Any, Optional
+from queue import Queue
+
+class BinaryTree:
+
+    class __nodeTree:
+
+        def __init__(self, value: Any, other_values: Optional[Any] = None):
+            self.value = value
+            self.other_values = other_values
+            self.left = None
+            self.right = None
+
+    def __init__(self):
+        self.root = None
+
+    def insert(self, value: Any, other_values: Optional[Any] = None):
+        def __insert(root, value, other_values):
+            if root is None:
+                return BinaryTree.__nodeTree(value, other_values)
+            elif value < root.value:
+                root.left = __insert(root.left, value, other_values)
+            else:
+                root.right = __insert(root.right, value, other_values)
+
+            return root
+
+        self.root = __insert(self.root, value, other_values)
+
+    def pre_order(self):
+        def __pre_order(root):
+            if root is not None:
+                print(root.value, root.other_values)
+                __pre_order(root.left)
+                __pre_order(root.right)
+
+        if self.root is not None:
+            __pre_order(self.root)
+
+    def in_order(self):
+        def __in_order(root):
+            if root is not None:
+                __in_order(root.left)
+                print(root.value)
+                __in_order(root.right)
+
+        if self.root is not None:
+            __in_order(self.root)
+
+    def post_order(self):
+        def __post_order(root):
+            if root is not None:
+                __post_order(root.right)
+                print(root.value)
+                __post_order(root.left)
+
+        if self.root is not None:
+            __post_order(self.root)
+
+    def by_level(self):
+        pass
+
+    def search(self, value: Any) -> __nodeTree:
+        def __search(root, value):
+            if root is not None:
+                if root.value == value:
+                    return root
+                elif root.value > value:
+                    return __search(root.left, value)
+                else:
+                    return __search(root.right, value)
+
+        aux = None
+        if self.root is not None:
+            aux = __search(self.root, value)
+        return aux
+
+    def delete(self, value: Any):
+        def __replace(root):
+            if root.right is None:
+                print(f'valor para remplazar {root.value}')
+                return root.left, root
+            else:
+                root.right, replace_node = __replace(root.right)
+                return root, replace_node
+
+        def __delete(root, value):
+            delete_value = None
+            if root is not None:
+                if value < root.value:
+                    root.left, delete_value = __delete(root.left, value)
+                elif value > root.value:
+                    root.right, delete_value = __delete(root.right, value)
+                else:
+                    delete_value = root.value
+                    if root.left is None:
+                        root = root.right
+                    elif root.right is None:
+                        root.right = root.left
+                    else:
+                        root.left, replace_node = __replace(root.left)
+                        root.value = replace_node.value
+                        root.other_values = replace_node.other_values
+
+            return root, delete_value
+
+        delete_value =  None
+        if self.root is not None:
+            self.root, delete_value = __delete(self.root, value)
+            print(self.root.value, delete_value)
+        
+        return delete_value
+    
+    def by_level(self):
+        tree_queue = Queue()
+        if self.root is not None:
+            tree_queue.arrive(self.root)
+
+            while tree_queue.size() > 0:
+                node = tree_queue.attention()
+                print(node.value)
+                if node.left is not None:
+                    tree_queue.arrive(node.left)
+                if node.right is not None:
+                    tree_queue.arrive(node.right)
+
+    def villain_in_order(self):
+        def __villain_in_order(root):
+            if root is not None:
+                __villain_in_order(root.left)
+                if root.other_values["is_villain"] is True:
+                    print(root.value)
+                __villain_in_order(root.right)
+
+        if self.root is not None:
+            __villain_in_order(self.root)
+
+
+# arbol = BinaryTree()
+
+# arbol.insert('F', 'f')
+# arbol.insert('B', 'b')
+# arbol.insert('K', 'k')
+# arbol.insert('E', 'e')
+# arbol.insert('H', 'h')
+# arbol.insert('J', 'j')
+# arbol.insert('R', 'r')
+# arbol.insert('I', 'i')
+# arbol.insert('A', 'a')
+# # delete_value = arbol.delete('F')
+
+# # if delete_value is not None:
+# #     print(f'valor eliminado {delete_value}')
+# # else:
+# #     print('valor no encontrado')
+# # print()
+# arbol.by_level()
+
+
+# # arbol.insert(11)
+
+# # pos = arbol.search(19)
+# # print(pos)
+# arbol.in_order()
+
+# from super_heroes_data import superheroes
+
+# for super_hero in superheroes:
+#     arbol.insert(super_hero['name'], super_hero)
+
+# arbol.villain_in_order()
+
+# print()
+# pos = arbol.search("Thanos")
+# if pos is not None:
+#     print(pos.value, pos.other_values)
+
+
+pokemones = [
+    {"name": "Gengar", "number": 94, "types": ["ghost", "poison"], "mega": True, "gigamax": True},
+    {"name": "Jolteon", "number": 135, "types": ["electric"], "mega": False, "gigamax": False},
+    {"name": "Lycanroc", "number": 745, "types": ["rock"], "mega": False, "gigamax": False},
+    {"name": "Tyrantrum", "number": 697, "types": ["rock", "dragon"], "mega": False, "gigamax": False},
+    {"name": "Pikachu", "number": 25, "types": ["electric"], "mega": False, "gigamax": True},
+    {"name": "Charizard", "number": 6, "types": ["fire", "flying"], "mega": True, "gigamax": True},
+    {"name": "Blastoise", "number": 9, "types": ["water"], "mega": True, "gigamax": False},
+    {"name": "Venusaur", "number": 3, "types": ["grass", "poison"], "mega": True, "gigamax": True},
+    {"name": "Garchomp", "number": 445, "types": ["dragon", "ground"], "mega": True, "gigamax": False},
+    {"name": "Lucario", "number": 448, "types": ["fighting", "steel"], "mega": True, "gigamax": False},
+    {"name": "Slowbro", "number": 80, "types": ["water", "psychic"], "mega": True, "gigamax": False},
+    {"name": "Absol", "number": 359, "types": ["dark"], "mega": True, "gigamax": False},
+    {"name": "Rayquaza", "number": 384, "types": ["dragon", "flying"], "mega": True, "gigamax": False},
+    {"name": "Mewtwo", "number": 150, "types": ["psychic"], "mega": True, "gigamax": False},
+    {"name": "Butterfree", "number": 12, "types": ["bug", "flying"], "mega": False, "gigamax": True},
+    {"name": "Snorlax", "number": 143, "types": ["normal"], "mega": False, "gigamax": True},
+    {"name": "Machamp", "number": 68, "types": ["fighting"], "mega": False, "gigamax": True},
+    {"name": "Eevee", "number": 133, "types": ["normal"], "mega": False, "gigamax": True},
+    {"name": "Drednaw", "number": 834, "types": ["water", "rock"], "mega": False, "gigamax": True},
+    {"name": "Gardevoir", "number": 282, "types": ["psychic", "fairy"], "mega": True, "gigamax": False}
+]
+
+
+#1- los indices de cada uno de los arboles deben ser: nombre,numero y tipo 
+
+arbol_nombre = BinaryTree()
+arbol_numero = BinaryTree()
+arbol_tipo = BinaryTree()
+
+for pokemones in pokemones:
+    arbol_nombre.insert(pokemones["name"], pokemones)
+    arbol_numero.insert(pokemones["number"], pokemones)
+    for tipo in pokemones["types"]:
+        arbol_tipo.insert(tipo +pokemones["name"], pokemones)
+        
+        
+        
+#2-mostrar todos los datos de un Pokémon a partir de su número y nombre –para este 
+# último, la búsqueda debe ser por proximidad, es decir si busco “bul” se deben 
+# mostrar todos los Pokémons cuyos nombres comiencen o contengan dichos caracteres.
+
+#2.1- mostrar los datos por numero,busqueda exacta.el numero 
+#nuestra clave "value"
+def arbol():
+    def numero():  
+        pos = arbol.search(numero)
+        if  pos is not None:
+          print(pos.value, pos.other_values)
+        else:
+         print("No existe ese número de Pokémon")
+         
+         
+#2.2- mostrar los datos de nombres  por proximidad 
+
+def proximity_search(self, value: Any):
+    def __search(root, value):
+        if root is not None:
+            nombre = root.value.lower()
+            buscado = value.lower()
+
+            # busca por proximidad: name.startswith(...) o carat que contengan(..)
+            if nombre.startswith(buscado) or buscado in nombre:
+                print(root.value, root.other_values)
+
+            __search(root.left, value)
+            __search(root.right, value)
+
+    if self.root is not None:
+        __search(self.root, value)
+
+
+nombre = input("Ingrese nombre del Pokémon (búsqueda por proximidad):")
+print("Pokemones encontrados:")
+arbol.proximity_search(nombre)
+
+
+#2-mostrar todos los nombres de los Pokémons de un determinado tipo: fantasma, fuego, 
+# acero y eléctrico realizar un listado en orden ascendente por número y nombre 
+# de Pokémon, y además un listado por nivel por nombre;  
+#.1
+
+
+tipos_buscados = ["fantasma", "fuego", "acero", "eléctrico"]
+lista_filtrados = []
+
+#2.2 recorrer el arbol original y guardar los que coinsiden 
+
+def recolectar(root):
+    if root is not None:
+        recolectar(root.left)
+
+        pokemon = root.other_values
+        if pokemones["tipo"] in tipos_buscados:
+            lista_filtrados.append(pokemones)
+
+        recolectar(root.right)
+
+recolectar(arbol.root)
+
+#2.3 orden ascendente por numero,muestra pokemones ordenados por numero 
+
+
+print("=== INORDEN ===")
+arbol.in_order()    
+
+#2.4 arbol ordenado por nombre,lo ago con una lista 
+
+print("\n=== ORDENADOS POR NOMBRE ===")
+ordenados_nombre = sorted(lista_filtrados, key=lambda x: x["nombre"])
+
+for pokemones in ordenados_nombre:
+    print(pokemones["numero"], "-", pokemones["nombre"], "-", pokemones["tipo"])
+    
+    
+    
+#2.5 ordenados por nivel,solo los del tipo pedido 
+
+print("\n=== POR NIVEL (solo Pokémon del tipo pedido) ===")
+cola = Queue()
+cola.arrive(arbol.root)
+
+while cola.size() > 0:
+    nodo = cola.attention()
+    pokemon = nodo.other_values
+
+    if pokemon["tipo"] in tipos_buscados:
+        print(pokemon["nombre"], "-", pokemon["tipo"])
+
+    if nodo.left:
+        cola.arrive(nodo.left)
+    if nodo.right:
+        cola.arrive(nodo.right)
+
+def tipo_buscado(): 
+    arbol_tipo = BinaryTree()
+for pkmemones in pokemones:
+    if tipo_buscado in pokemones["tipo"]:
+        arbol_tipo.insert(pokemones["numero"], pokemones)
+        
+
+print("=== INORDEN ===")
+arbol.in_order()    
+
+print("\n=== PREORDEN ===")
+arbol.pre_order()
+
+print("\n=== POSTORDEN ===")
+arbol.post_order()
+
+print("\n=== POR NIVEL ===")
+arbol.by_level() 
+
+#3-mostrar todos los Pokémons que son débiles frente a Jolteon, Lycanroc y Tyrantrum;
+
+#3.1-obtener los datos de mis tres poquemones en el arbol 
+
+arbol.insert(pokemon['number'], pokemon)
+jolteon = arbol.search(135)      # Jolteon es #135
+lycanroc = arbol.search(745)     # Lycanroc
+tyrantrum = arbol.search(697)    # Tyrantrum
+
+#3.2-obtener los tios de cada uno 
+
+tipos_debilidad = set()
+
+if jolteon is not None:
+    tipos_debilidad.update(jolteon.other_values["type"])
+
+if lycanroc is not None:
+    tipos_debilidad.update(lycanroc.other_values["type"])
+
+if tyrantrum is not None:
+    tipos_debilidad.update(tyrantrum.other_values["type"])
+    
+    
+#3.3-recorrer el arbol y mostarr los Pokemon que tengan alguna debilidad coincidente 
+#lo recorremos con un in orden normal
+
+def mostrar_debiles(arbol, tipos):
+    def __buscar(root, tipos):
+        if root is not None:
+            __buscar(root.left, tipos)
+
+            # reviso si su debilidad coincide
+            debilidades = root.other_values["weaknesses"]
+            if any(d in tipos for d in debilidades):
+                print(root.value, root.other_values)
+
+            __buscar(root.right, tipos)
+
+    if arbol.root is not None:
+        __buscar(arbol.root, tipos)
+        
+        
+        
+#3.4- llamamos 
+
+
+print("\n=== POKÉMON DÉBILES FRENTE A JOLTEON, LYCANROC Y TYRANTRUM ===")
+mostrar_debiles(arbol, tipos_debilidad)
+
+
+
+#4 mostrar todos los tipos decpokemon y cuantos ahy de cada tipo 
+
+def numero ():
+      def datos_pokemon():
+       arbol.insert(numero, datos_pokemon)
+       
+       
+# hasemos un barrido     
+       
+       
+       def contar_tipos(arbol):
+         tipos = {}
+
+def tipos():
+    def recorrer(root):
+        if root is not None:
+            recorrer(root.left)
+
+            lista_tipos = root.other_values["types"]   # ejemplo: ["Fuego"] o ["Agua","Hielo"]
+            for tipo in lista_tipos:
+                if tipo not in tipos:
+                    tipos[tipo] = 1
+                else:
+                    tipos[tipo] += 1
+
+            recorrer(root.right)
+
+        recorrer(arbol.root)
+        return tipos
+
+
+
+def contar_tipos():  
+    def tipos_pokemones():
+
+        tipos_pokemones = contar_tipos(arbol)
+
+    print("===== Tipos de Pokémon y cantidad =====")
+    for tipo, cantidad in tipos_pokemones.items():
+    print(f"{tipo}: {cantidad}")
+
+
+ 
+#5determinar cuantos Pokémons tienen megaevolucion
+
+def "mega" ()
+def bool()
+    
+"mega": True/False 
+
+
+def contar_megaevoluciones(arbol):
+    contador = 0
+
+    def _recorrer(root):
+        nonlocal contador
+        if root is not None:
+            _recorrer(root.left)
+            if root.other_values["mega"] == True:
+                contador += 1
+            _recorrer(root.right)
+
+    _recorrer(arbol.root)
+    return contador
+
+
+total_mega = contar_megaevoluciones(arbol)
+print("Cantidad de Pokémons con megaevolución:", total_mega)
+
+
+
+#punto 6
+
+"gigamax": True/False  
+
+def contar_gigamax(arbol):
+    def __recorrer(root):
+        if root is None:
+            return 0
+        return (__recorrer(root.left)
+                + __recorrer(root.right)
+                + (1 if root.other_values["gigamax"] else 0))
+    return __recorrer(arbol.root)
+
+
+print("Pokémon con Gigamax:", contar_gigamax(arbol))
+
+
+
+
+
+
+
+
